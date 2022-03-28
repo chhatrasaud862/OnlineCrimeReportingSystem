@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USER || REGISTRATION</title>
+    <link th:href="@{/css/registrationUser.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragment/resuable ::generic_css"></div>
+<div th:replace="fragment/resuable ::script"></div>
+<div th:replace="fragment/resuable ::font"></div>
+<div th:replace="fragment/resuable ::navbar_css"></div>
+<div th:replace="fragment/resuable ::navbar_css"></div>
+<div th:replace="fragment/resuable ::navbar"></div>
+<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Create an user account</h2>
+
+                            <form th:action="@{/user/create}" th:method="post" th:object="${userDto}">
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" th:field="*{firstName}"/>
+                                    <label class="form-label" for="form3Example1cg">Your first name</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="form3Example1cgc" class="form-control form-control-lg" th:field="*{lastName}"/>
+                                    <label class="form-label" for="form3Example1cg">Your last name</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" th:field="*{email}"/>
+                                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="number" id="form3Example3cgg" class="form-control form-control-lg" th:field="*{mobileNumber}" />
+                                    <label class="form-label" for="form3Example3cg">Your number</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="form3Example4cg" class="form-control form-control-lg" th:field="*{password}" />
+                                    <label class="form-label" for="form3Example4cg">Password</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="submit" class="btn btn-primary" value=" Save ">
+                                    <input type="reset" class="btn btn-danger" value=" Reset ">
+                                </div>
+
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a th:href="@{/user/login}" class="fw-bold text-body"><u>Login here</u></a></p>
+                            </form>
+                            <h4 th:text="*{message}"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
