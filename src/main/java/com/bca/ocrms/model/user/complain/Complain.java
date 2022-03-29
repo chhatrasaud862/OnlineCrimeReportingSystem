@@ -1,4 +1,4 @@
-package com.bca.ocrms.model.user.compliment;
+package com.bca.ocrms.model.user.complain;
 
 import com.bca.ocrms.model.user.register.Register;
 import lombok.*;

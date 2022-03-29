@@ -2,6 +2,8 @@ package com.bca.ocrms.dto.user;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,6 +14,6 @@ public class ComplainDto {
     private String address;
     private String nationalIdNumber;
     private String crimeType;
-    private String crimeDate;
+    private Date crimeDate;
     private String description;
 }
