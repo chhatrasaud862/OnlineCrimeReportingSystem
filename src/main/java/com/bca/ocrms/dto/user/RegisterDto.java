@@ -1,4 +1,4 @@
-package com.bca.ocrms.dto;
+package com.bca.ocrms.dto.user;
 
 import lombok.*;
 
@@ -7,10 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserDto {
+public class RegisterDto {
     private int id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
     private String mobileNumber;
     private String password;
