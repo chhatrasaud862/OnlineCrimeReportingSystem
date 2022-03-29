@@ -1,4 +1,4 @@
-package com.bca.ocrms.configUser;
+package com.bca.ocrms.config.configUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

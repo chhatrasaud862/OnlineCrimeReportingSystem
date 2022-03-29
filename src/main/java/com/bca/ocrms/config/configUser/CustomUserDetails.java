@@ -1,6 +1,6 @@
-package com.bca.ocrms.configUser;
+package com.bca.ocrms.config.configUser;
 
-import com.wicc.allserviceinone.modul.user.User;
+import com.bca.ocrms.model.user.register.Register;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,11 +9,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private final User user;
+    private final Register register;
 
-    public CustomUserDetails(User user) {
-        this.user = user;
-        com.wicc.allserviceinone.component.User.setUser(user);
+    public CustomUserDetails(Register register) {
+        this.register = register;
+        com.bca.ocrms.component.userAuthorize.Register.setRegister(register);
     }
 
 
@@ -24,12 +24,12 @@ public class CustomUserDetails implements UserDetails {
    //get the user password
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return register.getPassword();
     }
     //get teh email
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return register.getEmail();
     }
 
     @Override
