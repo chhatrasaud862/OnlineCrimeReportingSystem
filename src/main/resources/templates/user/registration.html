@@ -21,15 +21,11 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Create an user account</h2>
 
-                            <form th:action="@{/user/create}" th:method="post" th:object="${userDto}">
+                            <form th:action="@{/register}" th:method="post" th:object="${registerDto}">
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" th:field="*{firstName}"/>
-                                    <label class="form-label" for="form3Example1cg">Your first name</label>
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cgc" class="form-control form-control-lg" th:field="*{lastName}"/>
-                                    <label class="form-label" for="form3Example1cg">Your last name</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" th:field="*{name}"/>
+                                    <label class="form-label" for="form3Example1cg">Name</label>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <input type="email" id="form3Example3cg" class="form-control form-control-lg" th:field="*{email}"/>
@@ -48,7 +44,7 @@
                                     <input type="reset" class="btn btn-danger" value=" Reset ">
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a th:href="@{/user/login}" class="fw-bold text-body"><u>Login here</u></a></p>
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a th:href="@{/login}" class="fw-bold text-body"><u>Login here</u></a></p>
                             </form>
                             <h4 th:text="*{message}"></h4>
                         </div>

@@ -11,4 +11,9 @@ public class MainController {
     {
         return "homePage";
     }
+    @GetMapping("/login")
+    public String openLogin()
+    {
+        return "user/loginUser";
+    }
 }
