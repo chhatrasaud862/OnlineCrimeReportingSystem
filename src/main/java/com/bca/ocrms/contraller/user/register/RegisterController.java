@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-import static javax.print.PrintServiceLookup.registerService;
 
 @Controller
-@RequestMapping("/register")
+@RequestMapping("/registration")
 public class RegisterController {
     private final RegisterServiceImpl registerService;
     public RegisterController(RegisterServiceImpl registerService) {

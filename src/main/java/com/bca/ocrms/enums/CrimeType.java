@@ -1,5 +1,11 @@
 package com.bca.ocrms.enums;
 
-public class CrimeType {
+public enum CrimeType {
+   DRUGS,
+    HOMICIDE,
+    TRAFFIC,
+    THEFT,
+    CYBER,
+    VIOLENT;
 
 }
