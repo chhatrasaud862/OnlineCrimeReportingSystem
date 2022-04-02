@@ -21,7 +21,7 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Create an user account</h2>
 
-                            <form th:action="@{/register}" th:method="post" th:object="${registerDto}">
+                            <form th:action="@{/registration}" th:method="post" th:object="${registerDto}">
 
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example1cg" class="form-control form-control-lg" th:field="*{name}"/>
@@ -40,7 +40,7 @@
                                     <label class="form-label" for="form3Example4cg">Password</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-primary" value=" Save ">
+                                    <input type="submit" class="btn btn-primary" value=" Submit ">
                                     <input type="reset" class="btn btn-danger" value=" Reset ">
                                 </div>
 

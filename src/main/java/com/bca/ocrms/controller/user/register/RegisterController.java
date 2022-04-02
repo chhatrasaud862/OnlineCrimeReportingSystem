@@ -1,4 +1,4 @@
-package com.bca.ocrms.contraller.user.register;
+package com.bca.ocrms.controller.user.register;
 
 import com.bca.ocrms.dto.user.RegisterDto;
 import com.bca.ocrms.service.impl.user.RegisterServiceImpl;
@@ -46,4 +46,5 @@ public class RegisterController {
 //        return "redirect:/registration?success";
         return "user/registration";
     }
+
 }

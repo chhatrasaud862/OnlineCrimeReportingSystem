@@ -1,5 +1,6 @@
 package com.bca.ocrms.model.user.complain;
 
+import com.bca.ocrms.enums.CrimeType;
 import com.bca.ocrms.model.user.register.Register;
 import lombok.*;
 
@@ -25,8 +26,9 @@ public class Complain {
     @Column(name="natinal_id_number",nullable = false)
     private String nationIdNumber;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="crime_type",nullable = false)
-    private String crimeType;
+    private CrimeType crimeType;
 
     @Column(name="crime_date",nullable = false)
     private Date crimeDate;

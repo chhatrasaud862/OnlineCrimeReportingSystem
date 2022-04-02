@@ -8,6 +8,7 @@ import com.bca.ocrms.service.user.ComplainService;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,8 +29,9 @@ public class ComplainServiceImpl implements ComplainService {
         entity.setAddress(complainDto.getAddress());
         entity.setNationIdNumber(complainDto.getNationalIdNumber());
         entity.setCrimeType(complainDto.getCrimeType());
-        entity.setCrimeDate(complainDto.getCrimeDate());
+        entity.setCrimeDate(new SimpleDateFormat("dd-MM-yyyy").parse(complainDto.getCrimeDate()));
         entity.setDescription(complainDto.getDescription());
+        entity=complainRepo.save(entity);
 
         return complainDto;
     }
@@ -45,7 +47,7 @@ public class ComplainServiceImpl implements ComplainService {
                     .address(complain.getAddress())
                     .nationalIdNumber(complain.getNationIdNumber())
                     .crimeType(complain.getCrimeType())
-                    .crimeDate(complain.getCrimeDate())
+                    .crimeDate(new SimpleDateFormat("dd-MM-yyyy").format(complain.getCrimeDate()))
                     .description(complain.getDescription())
                     .build());
         }
@@ -64,7 +66,7 @@ public class ComplainServiceImpl implements ComplainService {
                     .address(complain.getAddress())
                     .nationalIdNumber(complain.getNationIdNumber())
                     .crimeType(complain.getCrimeType())
-                    .crimeDate(complain.getCrimeDate())
+                    .crimeDate(new SimpleDateFormat("dd-MM-yyyy").format(complain.getCrimeDate()))
                     .description(complain.getDescription())
                     .build();
         }

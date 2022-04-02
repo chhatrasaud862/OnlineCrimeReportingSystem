@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title>OCRMS || HOME</title>
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background: #222;
-            background-image: url('https://source.unsplash.com/1600x900/?landscape');
-            font-size: 120%;
+        .vh-100
+        {
+            background-color:darkgrey;
+        }
+        .text
+        {
+            margin-left: 550px;
+            color: #0919d5;
+        }
+        .text1
+        {
+            margin-left: 300px;
+            color: #09fa09;
         }
     </style>
 </head>
@@ -19,5 +27,19 @@
     <div th:replace="fragment/resuable ::navbar_css"></div>
     <div th:replace="fragment/resuable ::navbar_css"></div>
       <div th:replace="fragment/resuable ::navbar"></div>
+      <div class="vh-100">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="text">
+      <h1>WELCOME</h1>
+          </div>
+          <br>
+          <div class="text1">
+              <h2>OUR CRIME REPORT MANAGEMENT SYSTEM</h2>
+          </div>
+      </div>
 </body>
 </html>

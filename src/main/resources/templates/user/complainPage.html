@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>complain || page</title>
+    <style>
+        .tab
+        {
+            margin-left: 200px;
+            color: #0010c9;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragment/userResuable ::generic_cs"></div>
+<div th:replace="fragment/userResuable ::script"></div>
+<div th:replace="fragment/userResuable ::fonts"></div>
+<div th:replace="fragment/userResuable ::navbar_css"></div>
+<div th:replace="fragment/userResuable ::navbar_css"></div>
+<div th:replace="fragment/userResuable ::usernavbar"></div>
+<div class="tab">
+    <div class="container my-5">
+        <h3> <u><b>Complain form</b></u></h3>
+        <p class="title" th:align="right" style="margin-right: 500px">
+            <a th:href="@{/}" class="btn btn-large btn-primary">back</a>
+        </p>
+        <div class="card"style="margin-right: 500px">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/complain/create}" th:method="post"th:object="${complainDto}">
+                        <div class="row">
+                            <input type="text" th:field="*{id}" hidden>
+                            <div class="form-group col-md-6">
+                                <label for="address" class="col-form-label">Address</label>
+                                <input type="text" th:field="*{address}" class="form-control"
+                                       id="address" placeholder="Enter the address"  />
+                                <p class="display_msg" th:if="${#fields.hasErrors('address')}"
+                                   th:errors="*{address}"></p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="number" class="col-form-label">National id number</label>
+                                <input type="number" th:field="*{nationalIdNumber}" class="form-control"
+                                       id="number" placeholder="Enter the national number"  />
+                                <p class="display_msg" th:if="${#fields.hasErrors('nationalIdNumber')}"
+                                   th:errors="*{nationalIdNumber}"></p>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label class="text-dark">Select crime</label>
+                                <select name="todo status" th:field="*{crimeType}" class="form-select" aria-label="Default select example"required/>
+                                <option value="">Select crime</option>
+                                <th:block  th:each="crime : ${T(com.bca.ocrms.enums.CrimeType).values()}">
+                                    <option
+                                            th:value="${crime}"
+                                            th:text="${crime}">
+
+                                    </option>
+                                </th:block>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="date" class="col-form-label">Crime date</label>
+                                <input type="date" th:field="*{crimeDate}" class="form-control"
+                                       id="date" placeholder="Enter the crime date"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                <textarea class="form-control" th:field="*{description}" id="exampleFormControlTextarea1" rows="3"
+                                          placeholder="enter the description"></textarea>
+                                <p class="display_msg" th:if="${#fields.hasErrors('description')}"
+                                   th:errors="*{description}"></p>
+                            </div>
+                            <br>
+                            <hr>
+                            <div class="col-md-6" >
+                                <input type="submit" class="btn btn-primary" value=" Save ">
+                                <input type="reset" class="btn btn-danger" value=" Reset ">
+                            </div>
+                        </div>
+                    </form>
+                    <h4 th:text="*{message}" style="color: #071ae8"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

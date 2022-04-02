@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>USER || HOME</title>
+    <style>
+        .vh-100
+        {
+            background-color: #5aaad7;
+        }
+        .wl
+        {
+            color: #0010c9;
+            margin-left: 550px;
+            font-size: 50px;
+        }
+        .ue
+        {
+            color: #09fa09;
+            margin-left: 300px;
+            font-size: 40px;
+        }
+    </style>
 </head>
 <body>
-<div th:replace="fragment/resuable ::generic_css"></div>
-<div th:replace="fragment/resuable ::script"></div>
-<div th:replace="fragment/resuable ::font"></div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">USER COMPLAIN</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" th:href="${~/complain/page}">New Complain</a>
-      <a class="nav-item nav-link" th:href="${~/complain/home}">Show Complain</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-      <li><a th:href="@{~/logout}"><i class='far fa-user'></i> User logout</a></li>
-    </div>
-  </div>
-</nav>
+<div th:replace="fragment/userResuable ::generic_cs"></div>
+<div th:replace="fragment/userResuable ::script"></div>
+<div th:replace="fragment/userResuable ::fonts"></div>
+<div th:replace="fragment/userResuable ::navbar_css"></div>
+<div th:replace="fragment/userResuable ::navbar_css"></div>
+<div th:replace="fragment/userResuable ::usernavbar"></div>
+<div class="vh-100">
+<h1 class="wl">WELCOME</h1>
+<h2 class="ue">USER MENU</h2>
+</div>
 </body>
 </html>
