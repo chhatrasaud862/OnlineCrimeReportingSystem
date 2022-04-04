@@ -12,7 +12,8 @@ import javax.persistence.*;
 @Builder
 @Table(name="user_register",uniqueConstraints = {
         @UniqueConstraint(name="unique_Register_email",columnNames = "email"),
-        @UniqueConstraint(name="unique_Register_mobileNumber",columnNames = "mobile_Number")
+        @UniqueConstraint(name="unique_Register_mobileNumber",columnNames = "mobile_number"),
+        @UniqueConstraint(name="unique_Register_nationalIdNumber",columnNames = "national_id_number")
 })
 public class Register {
     @Id
@@ -22,6 +23,9 @@ public class Register {
 
     @Column(name="name",nullable = false)
     private String name;
+
+    @Column(name="national_id_number",nullable = false)
+    private String nationalIdNumber;
 
     @Column(name="email",nullable = false)
     private String email;

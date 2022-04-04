@@ -23,15 +23,16 @@ public class Complain {
     @Column(name="address",nullable = false)
     private String address;
 
-    @Column(name="natinal_id_number",nullable = false)
-    private String nationIdNumber;
-
     @Enumerated(EnumType.STRING)
     @Column(name="crime_type",nullable = false)
     private CrimeType crimeType;
 
     @Column(name="crime_date",nullable = false)
     private Date crimeDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="complain_date")
+    private Date complainDate;
 
     @Column(name = "description",nullable = false)
     private String description;

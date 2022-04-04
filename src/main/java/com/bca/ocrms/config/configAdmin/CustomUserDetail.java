@@ -1,6 +1,6 @@
-package com.bca.ocrms.config.configUser;
+package com.bca.ocrms.config.configAdmin;
 
-import com.bca.ocrms.model.user.register.Register;
+import com.bca.ocrms.model.admin.AdminRegister;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,28 +8,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomUserDetails implements UserDetails {
-    private final Register register;
+public class CustomUserDetail implements UserDetails {
+ private final AdminRegister adminRegister;
 
-    public CustomUserDetails(Register register) {
-        this.register = register;
-        com.bca.ocrms.component.userAuthorize.Register.setRegister(register);
+    public CustomUserDetail(AdminRegister adminRegister) {
+        this.adminRegister = adminRegister;
+        com.bca.ocrms.component.adminAuthorize.AdminRegisters.setAdminRegister(adminRegister);
     }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
    //get the user password
     @Override
     public String getPassword() {
-        return register.getPassword();
+        return adminRegister.getPassword();
     }
     //get teh email
     @Override
     public String getUsername() {
-        return register.getEmail();
+        return adminRegister.getEmail();
     }
 
     @Override

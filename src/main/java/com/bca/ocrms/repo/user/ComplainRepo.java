@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface ComplainRepo extends JpaRepository<Complain,Integer> {
-    @Query(value = "SELECT * FROM user_complain u WHERE R.Register_id = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM user_complain u WHERE u.Register_id = ?1", nativeQuery = true)
     List<Complain> getComplainList(Integer userId);
 }

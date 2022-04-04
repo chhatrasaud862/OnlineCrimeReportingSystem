@@ -19,6 +19,9 @@ public class RegisterDto {
     @NotEmpty(message = "Number can not be empty!!")
     private String name;
 
+    @NotEmpty(message = "National id can not be empty!!")
+    private String nationalIdNumber;
+
     @Email
     @NotEmpty(message = "Email can not be empty!!")
     private String email;

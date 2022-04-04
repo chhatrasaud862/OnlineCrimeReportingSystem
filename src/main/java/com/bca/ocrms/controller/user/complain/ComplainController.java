@@ -24,7 +24,7 @@ public class ComplainController {
         this.registerService = registerService;
     }
 
-    @GetMapping
+    @GetMapping("/home")
     public String openHome(Model model)
     {
         model.addAttribute("complainDto",new ComplainDto());

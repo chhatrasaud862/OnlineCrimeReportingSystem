@@ -5,19 +5,22 @@ import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.model.user.complain.Complain;
 import com.bca.ocrms.repo.user.ComplainRepo;
 import com.bca.ocrms.service.user.ComplainService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ComplainServiceImpl implements ComplainService {
     private final ComplainRepo complainRepo;
 
-    public ComplainServiceImpl(ComplainRepo complainRepo) {
+    public ComplainServiceImpl(ComplainRepo complainRepo)  {
         this.complainRepo = complainRepo;
     }
 
@@ -27,9 +30,9 @@ public class ComplainServiceImpl implements ComplainService {
         entity.setRegister(Register.getRegister());
         entity.setId(complainDto.getId());
         entity.setAddress(complainDto.getAddress());
-        entity.setNationIdNumber(complainDto.getNationalIdNumber());
         entity.setCrimeType(complainDto.getCrimeType());
         entity.setCrimeDate(new SimpleDateFormat("dd-MM-yyyy").parse(complainDto.getCrimeDate()));
+        entity.setComplainDate(new Date());
         entity.setDescription(complainDto.getDescription());
         entity=complainRepo.save(entity);
 
@@ -45,9 +48,9 @@ public class ComplainServiceImpl implements ComplainService {
             complainDtoList.add(ComplainDto.builder()
                     .id(complain.getId())
                     .address(complain.getAddress())
-                    .nationalIdNumber(complain.getNationIdNumber())
                     .crimeType(complain.getCrimeType())
                     .crimeDate(new SimpleDateFormat("dd-MM-yyyy").format(complain.getCrimeDate()))
+                    .complainDate(complain.getComplainDate())
                     .description(complain.getDescription())
                     .build());
         }
@@ -64,7 +67,6 @@ public class ComplainServiceImpl implements ComplainService {
           return   ComplainDto.builder()
                     .id(complain.getId())
                     .address(complain.getAddress())
-                    .nationalIdNumber(complain.getNationIdNumber())
                     .crimeType(complain.getCrimeType())
                     .crimeDate(new SimpleDateFormat("dd-MM-yyyy").format(complain.getCrimeDate()))
                     .description(complain.getDescription())

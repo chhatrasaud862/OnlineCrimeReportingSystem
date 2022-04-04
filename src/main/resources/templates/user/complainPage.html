@@ -6,8 +6,11 @@
     <style>
         .tab
         {
-            margin-left: 200px;
+            margin-left: 400px;
             color: #0010c9;
+        }
+        body{
+            color: darkturquoise;
         }
     </style>
 </head>
@@ -21,10 +24,10 @@
 <div class="tab">
     <div class="container my-5">
         <h3> <u><b>Complain form</b></u></h3>
-        <p class="title" th:align="right" style="margin-right: 500px">
+        <p class="title" th:align="right" style="margin-right: 400px">
             <a th:href="@{/}" class="btn btn-large btn-primary">back</a>
         </p>
-        <div class="card"style="margin-right: 500px">
+        <div class="card"style="margin-right: 400px">
             <div class="card-body">
                 <div class="col-md-10">
                     <form action="#" th:action="@{/complain/create}" th:method="post"th:object="${complainDto}">
@@ -36,13 +39,6 @@
                                        id="address" placeholder="Enter the address"  />
                                 <p class="display_msg" th:if="${#fields.hasErrors('address')}"
                                    th:errors="*{address}"></p>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="number" class="col-form-label">National id number</label>
-                                <input type="number" th:field="*{nationalIdNumber}" class="form-control"
-                                       id="number" placeholder="Enter the national number"  />
-                                <p class="display_msg" th:if="${#fields.hasErrors('nationalIdNumber')}"
-                                   th:errors="*{nationalIdNumber}"></p>
                             </div>
                             <div class="form-group col-md-5">
                                 <label class="text-dark">Select crime</label>

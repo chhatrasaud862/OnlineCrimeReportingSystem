@@ -22,6 +22,7 @@ public class RegisterServiceImpl implements RegisterService {
         Register entity=new Register();
         entity.setId(registerDto.getId());
         entity.setName(registerDto.getName());
+        entity.setNationalIdNumber(registerDto.getNationalIdNumber());
         entity.setEmail(registerDto.getEmail());
         entity.setMobileNumber(registerDto.getMobileNumber());
         entity.setPassword(passwordEncoder.encode(registerDto.getPassword()));

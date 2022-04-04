@@ -19,12 +19,11 @@ public class ComplainDto {
     @NotEmpty(message = "Address can not be empty!!")
     private String address;
 
-    @NotEmpty(message = "National id can not be empty!!")
-    private String nationalIdNumber;
-
     private CrimeType crimeType;
 
     private String crimeDate;
+
+    private  Date complainDate;
 
     @NotEmpty(message = "Description can not be empty!!")
     private String description;
