@@ -1,6 +1,6 @@
 package com.bca.ocrms.config.configUser;
 
-import com.bca.ocrms.model.user.register.Register;
+import com.bca.ocrms.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,11 +9,10 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private final Register register;
+    private final User user;
 
-    public CustomUserDetails(Register register) {
-        this.register = register;
-        com.bca.ocrms.component.userAuthorize.Register.setRegister(register);
+    public CustomUserDetails(User user) {
+        this.user = user;
     }
 
 
@@ -21,15 +20,17 @@ public class CustomUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
-   //get the user password
+
+    //get the user password
     @Override
     public String getPassword() {
-        return register.getPassword();
+        return user.getPassword();
     }
+
     //get teh email
     @Override
     public String getUsername() {
-        return register.getEmail();
+        return user.getEmail();
     }
 
     @Override

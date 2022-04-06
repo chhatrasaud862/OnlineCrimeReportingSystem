@@ -10,6 +10,6 @@ public class AdminController {
     @GetMapping("/home")
     public String openLoginPage()
     {
-      return "admin/adminLogin";
+      return "admin/adminRegisterPage";
     }
 }
