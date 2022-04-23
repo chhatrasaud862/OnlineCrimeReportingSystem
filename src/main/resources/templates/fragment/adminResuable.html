@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>USER || HOME</title>
+    <title>ADMIN || HOME</title>
     <div th:fragment="generic_cs">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
@@ -16,14 +16,13 @@
 </head>
 <body>
 <div class="container">
-    <div th:fragment="usernavbar">
+    <div th:fragment="adminnavbar">
         <nav>
             <ul class="menu">
-                <li class="logo"><a href="#">User</a></li>
+                <li class="logo"><a href="#">Admin</a></li>
                 <li><a th:href="@{/}"><i class='fas fa-home' style='font-size:26px'>Home</i></a></li>
-                <li><a th:href="@{/complain/page}">New complain</a></li>
-                <li><a th:href="@{/complain/home}">Show complain</a></li>
-                <li><a th:href="@{/complain/notification}">Notification</a></li>
+                <li><a th:href="@{/admin/show}">Show complain</a></li>
+                <li><a th:href="@{/admin/report}">Crime Report</a></li>
                 <li><a href="#">About</a></li>
                 </li>
                 <li><a th:href="@{~/logout}"><i class='far fa-user'></i>Logout</a></li>
@@ -59,7 +58,7 @@
                 font-family: sans-serif;
             }
             nav {
-                background: #131313;
+                background: #0c0c0c;
                 padding: 5px 20px;
             }
             ul {

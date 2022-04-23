@@ -1,5 +1,6 @@
 package com.bca.ocrms.model.admin;
 
+import com.bca.ocrms.enums.Gender;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,6 +24,9 @@ public class AdminRegister {
     @Column(name="name",nullable = false)
     private String name;
 
+    @Column(name="address",nullable = false)
+    private String address;
+
     @Column(name="email",nullable = false)
     private String email;
 
@@ -32,9 +36,11 @@ public class AdminRegister {
     @Column(name="id_number",nullable = false)
     private String idNumber;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="gender",nullable = false)
+    private Gender gender;
+
     @Column(name="post",nullable = false)
     private String post;
 
-    @Column(name="password",nullable = false)
-    private String password;
 }

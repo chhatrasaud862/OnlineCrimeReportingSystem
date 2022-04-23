@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminRegisterRepo extends JpaRepository<AdminRegister,Integer> {
 
-    public AdminRegister findUserByEmail(String email);
+    public AdminRegister findAdminRegisterByEmail(String email);
 }

@@ -41,10 +41,10 @@
             <td th:text="${complain.crimeType}"></td>
             <td th:text="${complain.crimeDate}"></td>
             <td th:text="${complain.complainDate}"></td>
-            <td></td>
+            <td th:text="${complain.complainStatus}"></td>
             <td>
-                <a href="#">
-                    <botton class="btn btn-info">Update</botton>
+                <a th:href="@{~/complain/view/}+${complain.id}">
+                    <botton class="btn btn-info">View</botton>
                 </a>
             </td>
         </tr>

@@ -6,10 +6,7 @@ import com.bca.ocrms.service.impl.user.RegisterServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -53,5 +50,19 @@ public class ComplainController {
         }
         model.addAttribute("complainDto",complainDto);
         return "user/complainPage";
+    }
+    @GetMapping("/view/{id}")
+    public String viewComplain(@PathVariable("id")Integer id,Model model)
+    {
+        model.addAttribute("complainView",complainService.findById(id));
+        return "user/viewComplain";
+    }
+    @GetMapping("/notification")
+    public String openNotification() {
+        if (complainService.getVerifiedStatus()) {
+            return "user/notification";
+        } else {
+                  return "user/blankPage";
+        }
     }
 }

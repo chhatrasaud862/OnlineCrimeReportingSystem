@@ -1,6 +1,8 @@
 package com.bca.ocrms.service.impl.admin;
 
 import com.bca.ocrms.dto.admin.AdminRegisterDto;
+import com.bca.ocrms.dto.user.RegisterDto;
+import com.bca.ocrms.enums.UserStatus;
 import com.bca.ocrms.model.admin.AdminRegister;
 import com.bca.ocrms.model.user.User;
 import com.bca.ocrms.repo.admin.AdminRegisterRepo;
@@ -32,23 +34,24 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
     @Override
     public AdminRegisterDto save(AdminRegisterDto adminRegisterDto) throws ParseException {
-        AdminRegister entity=new AdminRegister();
-        entity.setId(adminRegisterDto.getId());
-        entity.setName(adminRegisterDto.getName());
-        entity.setEmail(adminRegisterDto.getEmail());
-        entity.setContact(adminRegisterDto.getContact());
-        entity.setPost(adminRegisterDto.getPost());
-        entity.setIdNumber(adminRegisterDto.getIdNumber());
-        entity.setPassword(passwordEncoder.encode(adminRegisterDto.getPassword()));
+        AdminRegister adminRegister=new AdminRegister();
+        adminRegister.setId(adminRegisterDto.getId());
+        adminRegister.setName(adminRegisterDto.getName());
+        adminRegister.setAddress(adminRegisterDto.getAddress());
+        adminRegister.setGender(adminRegisterDto.getGender());
+        adminRegister.setEmail(adminRegisterDto.getEmail());
+        adminRegister.setContact(adminRegisterDto.getContact());
+        adminRegister.setPost(adminRegisterDto.getPost());
+        adminRegister.setIdNumber(adminRegisterDto.getIdNumber());
 
-        entity=adminRegisterRepo.save(entity);
+       AdminRegister adminRegister1=adminRegisterRepo.save(adminRegister);
 
         User user = new User();
-        user.setEmail(entity.getEmail());
-        user.setPassword(entity.getPassword());
+        user.setEmail(adminRegisterDto.getEmail());
+        user.setPassword(passwordEncoder.encode(adminRegisterDto.getPassword()));
+        user.setUserStatus(UserStatus.ADMIN);
         userService.save(user);
-
-        return adminRegisterDto;
+        return AdminRegisterDto.builder().id(adminRegister1.getId()).build();
     }
 
     @Override
@@ -64,5 +67,8 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
     @Override
     public void deleteById(Integer integer) {
 
+    }
+    public AdminRegister findAdminByEmail(String email){
+        return adminRegisterRepo.findAdminRegisterByEmail(email);
     }
 }

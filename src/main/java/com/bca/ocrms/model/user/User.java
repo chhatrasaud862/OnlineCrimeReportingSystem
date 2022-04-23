@@ -1,16 +1,9 @@
 package com.bca.ocrms.model.user;
 
+import com.bca.ocrms.enums.UserStatus;
 import lombok.*;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
-
-/**
- * @author Chhatra
- * @product IntelliJ IDEA
- * @project ocrms
- * @Date 4/5/22
- */
 @Entity
 @Getter
 @Setter
@@ -31,5 +24,8 @@ public class User {
 
     @Column(name="password",nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private UserStatus userStatus;
 }
 

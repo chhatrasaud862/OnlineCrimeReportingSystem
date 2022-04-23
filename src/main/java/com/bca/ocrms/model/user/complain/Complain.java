@@ -1,5 +1,6 @@
 package com.bca.ocrms.model.user.complain;
 
+import com.bca.ocrms.enums.ComplainStatus;
 import com.bca.ocrms.enums.CrimeType;
 import com.bca.ocrms.model.user.register.Register;
 import lombok.*;
@@ -34,6 +35,9 @@ public class Complain {
     @Column(name="complain_date")
     private Date complainDate;
 
+    @Column(nullable = false)
+    private ComplainStatus complainStatus;
+
     @Column(name = "description",nullable = false)
     private String description;
 
@@ -41,4 +45,5 @@ public class Complain {
     @JoinColumn(name="register_id",referencedColumnName = "id",
     foreignKey = @ForeignKey(name = "Fk_register_complaint"))
     private Register register;
+
 }

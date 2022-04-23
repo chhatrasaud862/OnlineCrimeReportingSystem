@@ -6,6 +6,7 @@ public enum CrimeType {
     TRAFFIC,
     THEFT,
     CYBER,
-    VIOLENT;
+    VIOLENT,
+     OTHER;
 
 }

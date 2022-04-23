@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>complain || List</title>
+    <style>
+        .tab
+        {
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-
+<div th:replace="fragment/adminResuable ::generic_cs"></div>
+<div th:replace="fragment/adminResuable ::script"></div>
+<div th:replace="fragment/adminResuable ::fonts"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::adminnavbar"></div>
+<div class="tab">
+    <table class="table table-hover">
+        <h2>Complain List</h2>
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">SN</th>
+            <th scope="col">Complain By</th>
+            <th scope="col">Address</th>
+            <th scope="col">Crime Type</th>
+            <th scope="col">Crime Date</th>
+            <th scope="col">Complain Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="complain,loop :${complainList}">
+            <th th:text="${loop.count}"></th>
+            <td th:text="${complain.getRegister().name}"></td>
+            <td th:text="${complain.address}"></td>
+            <td th:text="${complain.crimeType}"></td>
+            <td th:text="${complain.crimeDate}"></td>
+            <td th:text="${complain.complainDate}"></td>
+            <td th:text="${complain.complainStatus}"></td>
+            <td>
+                <a th:href="@{~/admin/verify/}+${complain.id}">
+                    <botton class="btn btn-info">Verify</botton>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

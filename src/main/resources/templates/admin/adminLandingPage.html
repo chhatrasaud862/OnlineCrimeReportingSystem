@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN || HOME</title>
+    <style>
+        .wl
+        {
+            color: #0010c9;
+            margin-left: 550px;
+            font-size: 50px;
+            margin-top: 200px;
+        }
+        .ue
+        {
+            color: #09fa09;
+            margin-left: 470px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body style="background-color: #263037">
+<div th:replace="fragment/adminResuable ::generic_cs"></div>
+<div th:replace="fragment/adminResuable ::script"></div>
+<div th:replace="fragment/adminResuable ::fonts"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::adminnavbar"></div>
+<div class="vh-100">
+    <h1 class="wl">WELCOME</h1>
+    <h2 class="ue">ADMIN HOME MENU</h2>
+</div>
+</body>
+</html>

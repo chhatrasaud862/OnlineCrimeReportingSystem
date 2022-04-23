@@ -1,5 +1,6 @@
 package com.bca.ocrms.dto.user;
 
+import com.bca.ocrms.enums.Gender;
 import lombok.*;
 
 import javax.validation.Valid;
@@ -21,6 +22,8 @@ public class RegisterDto {
 
     @NotEmpty(message = "National id can not be empty!!")
     private String nationalIdNumber;
+
+    private Gender gender;
 
     @Email
     @NotEmpty(message = "Email can not be empty!!")

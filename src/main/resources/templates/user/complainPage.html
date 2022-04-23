@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #999999">
 <div th:replace="fragment/userResuable ::generic_cs"></div>
 <div th:replace="fragment/userResuable ::script"></div>
 <div th:replace="fragment/userResuable ::fonts"></div>
@@ -22,13 +22,13 @@
 <div th:replace="fragment/userResuable ::navbar_css"></div>
 <div th:replace="fragment/userResuable ::usernavbar"></div>
 <div class="tab">
+    <div class="card"style="margin-right: 300px">
+        <div class="card-body">
     <div class="container my-5">
-        <h3> <u><b>Complain form</b></u></h3>
-        <p class="title" th:align="right" style="margin-right: 400px">
-            <a th:href="@{/}" class="btn btn-large btn-primary">back</a>
+        <p class="bottomNav">
+            <a th:href="@{/}" class="btn btn-primary">back</a>
         </p>
-        <div class="card"style="margin-right: 400px">
-            <div class="card-body">
+        <h3> <u><b>Complain form</b></u></h3>
                 <div class="col-md-10">
                     <form action="#" th:action="@{/complain/create}" th:method="post"th:object="${complainDto}">
                         <div class="row">

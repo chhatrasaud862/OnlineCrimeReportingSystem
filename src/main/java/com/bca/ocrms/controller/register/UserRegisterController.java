@@ -1,4 +1,4 @@
-package com.bca.ocrms.controller.user.register;
+package com.bca.ocrms.controller.register;
 
 import com.bca.ocrms.dto.user.RegisterDto;
 import com.bca.ocrms.service.impl.user.RegisterServiceImpl;
@@ -15,9 +15,9 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/registration")
-public class RegisterController {
+public class UserRegisterController {
     private final RegisterServiceImpl registerService;
-    public RegisterController(RegisterServiceImpl registerService) {
+    public UserRegisterController(RegisterServiceImpl registerService) {
         this.registerService= registerService;
     }
     @GetMapping

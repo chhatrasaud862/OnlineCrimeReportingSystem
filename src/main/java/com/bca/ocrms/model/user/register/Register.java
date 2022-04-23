@@ -1,5 +1,6 @@
 package com.bca.ocrms.model.user.register;
 
+import com.bca.ocrms.enums.Gender;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,9 +31,10 @@ public class Register {
     @Column(name="email",nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="gender",nullable = false)
+    private Gender gender;
+
     @Column(name="mobile_number",nullable = false)
     private String mobileNumber;
-
-    @Column(name = "password",nullable = false)
-    private String password;
 }

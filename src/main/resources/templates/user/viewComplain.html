@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View || Complain</title>
+  <style>
+    .tab
+    {
+      margin-right:300px;
+      margin-left: 300px;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body style="background-color: #dddddd">
+  <div th:replace="fragment/userResuable ::generic_cs"></div>
+  <div th:replace="fragment/userResuable ::script"></div>
+  <div th:replace="fragment/userResuable ::fonts"></div>
+  <div th:replace="fragment/userResuable ::navbar_css"></div>
+  <div th:replace="fragment/userResuable ::navbar_css"></div>
+  <div th:replace="fragment/userResuable ::usernavbar"></div>
+  <div class="tab">
+    <gh2>Complain Details</gh2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">field Name</th>
+        <th scope="col">field Data</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Complain Address</td>
+        <td th:text="${complainView.address}"></td>
+      </tr>
+      <tr>
+        <td>Crime Date</td>
+        <td th:text="${complainView.crimeDate}"></td>
+      </tr>
+      <tr>
+        <td>Complain Date</td>
+        <td th:text="${complainView.complainDate}"></td>
+      </tr>
+      <tr>
+        <td>Crime Type</td>
+        <td th:text="${complainView.crimeType}"></td>
+      </tr>
+      <tr>
+        <td>Cromplain Status</td>
+        <td th:text="${complainView.complainStatus}"></td>
+      </tr>
+      <tr>
+        <td>Complain Description</td>
+        <td th:text="${complainView.description}"></td>
+      </tr>
+      <tr>
+        <td>Crime Type</td>
+        <td th:text="${complainView.crimeType}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

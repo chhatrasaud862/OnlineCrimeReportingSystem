@@ -1,6 +1,9 @@
 package com.bca.ocrms.config.configUser;
 
+import com.bca.ocrms.component.authorizeUser.AuthorizeUser;
+import com.bca.ocrms.model.admin.AdminRegister;
 import com.bca.ocrms.model.user.User;
+import com.bca.ocrms.model.user.register.Register;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,9 +16,17 @@ public class CustomUserDetails implements UserDetails {
 
     public CustomUserDetails(User user) {
         this.user = user;
+        if (user.getUserStatus().ordinal() == 0) {
+            Register register = new Register();
+            register.setEmail(user.getEmail());
+            AuthorizeUser.setRegister(register);
+
+        } else {
+            AdminRegister adminRegister = new AdminRegister();
+            adminRegister.setEmail(user.getEmail());
+            AuthorizeUser.setAdminRegister(adminRegister);
+        }
     }
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
