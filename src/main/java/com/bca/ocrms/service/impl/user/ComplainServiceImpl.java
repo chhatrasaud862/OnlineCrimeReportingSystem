@@ -87,6 +87,7 @@ public class ComplainServiceImpl implements ComplainService {
 
     @Override
     public void deleteById(Integer integer) {
+        complainRepo.deleteById(integer);
 
     }
 

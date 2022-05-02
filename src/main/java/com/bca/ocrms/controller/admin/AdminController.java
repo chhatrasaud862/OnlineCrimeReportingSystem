@@ -48,5 +48,11 @@ public class AdminController {
     {
         return "admin/viewReport";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteComplain(@PathVariable("id")Integer id,Model model)
+    {
+        complainService.deleteById(id);
+        return "redirect:/admin/show";
+    }
 
 }
