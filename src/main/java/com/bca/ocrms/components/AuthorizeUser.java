@@ -1,4 +1,4 @@
-package com.bca.ocrms.component.authorizeUser;
+package com.bca.ocrms.components;
 
 import com.bca.ocrms.enums.UserStatus;
 import com.bca.ocrms.model.admin.AdminRegister;

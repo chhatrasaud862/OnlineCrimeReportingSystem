@@ -1,6 +1,6 @@
 package com.bca.ocrms.service.impl.user;
 
-import com.bca.ocrms.component.authorizeUser.AuthorizeUser;
+import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.enums.ComplainStatus;
 import com.bca.ocrms.model.user.complain.Complain;

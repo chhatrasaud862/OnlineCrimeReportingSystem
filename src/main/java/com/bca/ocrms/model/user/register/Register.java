@@ -4,6 +4,7 @@ import com.bca.ocrms.enums.Gender;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -28,13 +29,18 @@ public class Register {
     @Column(name="national_id_number",nullable = false)
     private String nationalIdNumber;
 
+    @Column(name="mobile_number",nullable = false)
+    private String mobileNumber;
+
     @Column(name="email",nullable = false)
     private String email;
+
+    @Column(name="date_of_birth",nullable = false)
+    private Date dateOfBirth;
 
     @Enumerated(EnumType.STRING)
     @Column(name="gender",nullable = false)
     private Gender gender;
 
-    @Column(name="mobile_number",nullable = false)
-    private String mobileNumber;
+    private String photo;
 }

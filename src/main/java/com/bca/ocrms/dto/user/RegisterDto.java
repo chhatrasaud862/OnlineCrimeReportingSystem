@@ -2,11 +2,13 @@ package com.bca.ocrms.dto.user;
 
 import com.bca.ocrms.enums.Gender;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,6 +25,8 @@ public class RegisterDto {
     @NotEmpty(message = "National id can not be empty!!")
     private String nationalIdNumber;
 
+    private String dateOfBirth;
+
     private Gender gender;
 
     @Email
@@ -35,4 +39,7 @@ public class RegisterDto {
 
     @NotEmpty(message = "Password can not be empty!!")
     private String password;
+
+    private String photo;
+    private MultipartFile multipartFile;
 }

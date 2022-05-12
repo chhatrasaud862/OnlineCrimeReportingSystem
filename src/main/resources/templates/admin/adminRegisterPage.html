@@ -1,99 +1,125 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin || Register</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <style>
-        .forms{
-            background-color: rgb(159, 149, 149);
-            margin: 25px auto;
-            border-radius: 8px;
-        }
-        label{
-            font-size: 18px;
-        }
-        ::placeholder{
-            font-size: 18px;
-        }
-    </style>
+    <title>Admin || REGISTRATION</title>
+    <link th:href="@{/css/registrationUser.css}" rel="stylesheet"/>
 </head>
-<body style=" background-color: #525252">
-<div th:replace="fragment/resuable ::generic_css"></div>
-<div th:replace="fragment/resuable ::script"></div>
-<div th:replace="fragment/resuable ::font"></div>
-<div th:replace="fragment/resuable ::navbar_css"></div>
-<div th:replace="fragment/resuable ::navbar_css"></div>
-<div th:replace="fragment/resuable ::navbar"></div>
-<div class="container col-7 md-7 p-5">
-
-    <form class="forms" th:action="@{/adminRegister}" th:method="post" th:object="${adminRegisterDto}">
-        <div class="p-5">
-            <h3 class="text-center p-2">Sign Up Here</h3>
-            <div class="form-row">
-
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Full Name</label>
-                    <input type="text" class="form-control input-lg"
-                        th:field="*{name}"   id="inputEmail5" placeholder="Full Name *">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Address</label>
-                    <input type="text" class="form-control" th:field="*{address}"
-                           id="inputPassword5" placeholder="Address *">
+<body>
+<div th:replace="fragment/adminResuable ::generic_cs"></div>
+<div th:replace="fragment/adminResuable ::script"></div>
+<div th:replace="fragment/adminResuable ::fonts"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::navbar_css"></div>
+<div th:replace="fragment/adminResuable ::adminnavbar"></div>
+<section>
+    <!--    class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">-->
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-15 col-md-5 col-lg-14 col-xl-12">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Create an new admin</h2>
+                            <form th:action="@{/adminRegister/create}" th:method="post" th:object="${adminRegisterDto}" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="name">Full Name</label>
+                                            <input type="text" id="name" class="form-control form-control-lg"
+                                                   placeholder="Full Name *" th:field="*{name}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="address">Address</label>
+                                            <input type="text" id="address" class="form-control form-control-lg"
+                                                   placeholder="Address *" th:field="*{address}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="number">Mobile Number</label>
+                                            <input type="number" id="number" class="form-control form-control-lg"
+                                                   placeholder="Mobile Number *" th:field="*{contact}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="post">Post</label>
+                                            <input type="text" id="post" class="form-control form-control-lg"
+                                                   placeholder="Post *" th:field="*{post}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="number1">Cetizen Number</label>
+                                            <input type="text" id="number1" class="form-control form-control-lg"
+                                                   placeholder="e.g. 69-01-73-01356" th:field="*{idNumber}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="email">Your Email</label>
+                                            <input type="email" id="email" class="form-control form-control-lg"
+                                                   placeholder="Email *" th:field="*{email}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example4cg1">Date Of Birth</label>
+                                            <input type="date" id="form3Example4cg1" class="form-control form-control-lg"
+                                                   placeholder="Date of birth *" th:field="*{dateOfBirth}"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example4cg">Gender</label>
+                                            <select name="gender" th:field="*{gender}" class="form-select" aria-label="Default select example"required/>
+                                            <option value="">Select Gender</option>
+                                            <th:block  th:each="gender : ${T(com.bca.ocrms.enums.Gender).values()}">
+                                                <option
+                                                        th:value="${gender}"
+                                                        th:text="${gender}">
+                                                </option>
+                                            </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" class="form-control form-control-lg"
+                                                   placeholder="password *" th:field="*{password}"/>
+                                        </div>
+                                    </div>
+                                    <div class="input-box col-md-6 mb-4">
+                                        <span class="details">Photo</span>
+                                        <input type="file" placeholder="Enter rating" th:field="*{multipartFile}">
+                                        <p class="display_msg" th:if="${#fields.hasErrors('multipartFile')}"
+                                           th:errors="*{multipartFile}"></p>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <input type="submit" class="btn btn-primary" value=" Submit ">
+                                    <input type="reset" class="btn btn-danger" value=" Reset ">
+                                </div>
+                            </form>
+                            <h4 th:text="*{message}" style="color: #0624d7"></h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="number">Number</label>
-                    <input type="number" class="form-control" th:field="*{contact}"
-                           id="number" placeholder="Number *">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Id Number</label>
-                    <input type="number" class="form-control" id="inputPassword7"
-                           th:field="*{idNumber}" placeholder="Id Number *">
-                </div>
-                <div class="form-group col-md-6">
-                    <label class="inputEmail4">Gender</label>
-                    <select name="gender" th:field="*{gender}" class="form-select" aria-label="Default select example"required/>
-                    <option value="">Select Gender</option>
-                    <th:block  th:each="gender : ${T(com.bca.ocrms.enums.Gender).values()}">
-                        <option
-                                th:value="${gender}"
-                                th:text="${gender}">
-
-                        </option>
-                    </th:block>
-                    </select>
-                </div>
-            <div class="form-group col-md-6">
-                <label for="inputAddress">Email</label>
-                <input type="email" class="form-control" th:field="*{email}"
-                       id="inputAddress" placeholder="Email *">
-            </div>
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Post</label>
-                    <input type="text" class="form-control" th:field="*{post}"
-                           id="inputEmail4" placeholder="Post">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" th:field="*{password}"
-                           id="inputPassword4" placeholder="Password">
-            </div>
-            </div>
-            <div class="forms">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
-            <p class="text-center text-muted mt-5 mb-0" style="color: #0b2bf5">Have already an account? <a th:href="@{/login}">
-                <u style="color: #0c0c0c">Login here</u></a></p>
-            </div>
-    </form>
-    <h4 th:text="*{message}" style="color: red"></h4>
-</div>
+        </div>
+    </div>
+</section>
 </body>
 </html>

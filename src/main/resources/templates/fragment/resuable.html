@@ -19,12 +19,12 @@
     <div th:fragment="navbar">
         <nav>
             <ul class="menu">
-                <li class="logo"><a href="#">OCRMS</a></li>
+                <li class="logo"><a href="#">ONLINE CRIME REPORTING MANAGEMENT SYSTEM</a></li>
                 <li><a th:href="@{/home}"><i class='fas fa-home' style='font-size:26px'>Home</i></a></li>
                 <li><a href="#">About</a></li>
                 </li>
                 <li><a th:href="@{~/login}"><i class='far fa-user'></i>Login</a></li>
-                <li><a th:href="@{~/register}"><i class='far fa-user'></i>Signup</a></li>
+                <li><a th:href="@{~/registration}"><i class='far fa-user'></i>Signup</a></li>
             </ul>
         </nav>
     </div>
@@ -73,9 +73,6 @@
 
                 text-decoration: none;
             }
-            .logo a:hover {
-                text-decoration: none;
-            }
             .menu li {
                 font-size: 18px;
                 padding: 15px 5px;
@@ -86,14 +83,6 @@
             .logo a,
             .toggle a {
                 font-size: 22px;
-            }
-            .logo a{
-                letter-spacing: 3px;
-                border-radius: 10px 30px;
-                border: 3px solid rgb(8, 201, 143);
-                padding: 8px;
-                font-family: 'Courier New', Courier, monospace;
-                font-weight: bold;
             }
             .button.secondary {
                 border-bottom: 1px #444 solid;

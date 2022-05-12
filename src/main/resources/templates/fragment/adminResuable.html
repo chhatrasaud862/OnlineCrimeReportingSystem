@@ -19,13 +19,14 @@
     <div th:fragment="adminnavbar">
         <nav>
             <ul class="menu">
-                <li class="logo"><a href="#">Admin</a></li>
-                <li><a th:href="@{/}"><i class='fas fa-home' style='font-size:26px'>Home</i></a></li>
-                <li><a th:href="@{/admin/show}">Show complain</a></li>
-                <li><a th:href="@{/admin/report}">Crime Report</a></li>
-                <li><a href="#">About</a></li>
+                <li class="logo" style="font-size: 35px">Admin</li>
+                <li style="font-size: 30px"><a th:href="@{/}"><i class='fas fa-home' style='font-size:26px'>Home</i></a></li>
+                <li style="font-size: 20px"><a th:href="@{/admin/show}">Show complain</a></li>
+                <li style="font-size: 20px"><a th:href="@{/admin/report}">Crime Report</a></li>
+                <li style="font-size: 20px"><a th:href="@{/adminRegister}">New Register</a></li>
+                <li style="font-size: 20px"><a href="#">About</a></li>
                 </li>
-                <li><a th:href="@{~/logout}"><i class='far fa-user'></i>Logout</a></li>
+                <li style="font-size: 20px"><a th:href="@{~/logout}"><i class='far fa-user'></i>Logout</a></li>
             </ul>
         </nav>
     </div>
@@ -79,7 +80,11 @@
                 padding: 15px 5px;
                 white-space: nowrap;
             }
-            .logo a,
+            .logo
+            {
+                font-family: sans-serif;
+                color: #1f5822;
+            }
             .toggle a {
                 font-size: 20px;
             }

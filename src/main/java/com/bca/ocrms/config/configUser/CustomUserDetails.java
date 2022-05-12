@@ -1,6 +1,6 @@
 package com.bca.ocrms.config.configUser;
 
-import com.bca.ocrms.component.authorizeUser.AuthorizeUser;
+import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.model.admin.AdminRegister;
 import com.bca.ocrms.model.user.User;
 import com.bca.ocrms.model.user.register.Register;

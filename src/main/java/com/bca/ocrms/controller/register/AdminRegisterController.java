@@ -33,7 +33,7 @@ public class AdminRegisterController {
         model.addAttribute("adminRegisterDto",new AdminRegisterDto());
         return "admin/adminRegisterPage";
     }
-    @PostMapping
+    @PostMapping("/create")
     public String createAdmin(@Valid @ModelAttribute AdminRegisterDto adminRegisterDto,
                               BindingResult bindingResult, Model model)
     {

@@ -31,7 +31,7 @@
             <th scope="col">Crime Date</th>
             <th scope="col">Complain Date</th>
             <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="col" style="align-items: center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -49,6 +49,9 @@
                 </a>
                 <a th:href="@{~/admin/delete/}+${complain.id}">
                     <botton class="btn btn-danger">Delete</botton>
+                </a>
+                <a th:href="@{~/admin/details/}+${complain.id}">
+                    <botton class="btn btn-primary">Details</botton>
                 </a>
             </td>
         </tr>

@@ -43,4 +43,6 @@ public class AdminRegister {
     @Column(name="post",nullable = false)
     private String post;
 
+    private String photo;
+
 }

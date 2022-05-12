@@ -1,5 +1,5 @@
 package com.bca.ocrms.controller;
-import com.bca.ocrms.component.authorizeUser.AuthorizeUser;
+import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.model.admin.AdminRegister;
 import com.bca.ocrms.model.user.register.Register;
 import com.bca.ocrms.service.impl.admin.AdminRegisterServiceImpl;
@@ -19,7 +19,7 @@ public class MainController {
         this.adminRegisterService = adminRegisterService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String openUserHomePage()
     {
         if (AuthorizeUser.getUserStatus().ordinal()==0)
