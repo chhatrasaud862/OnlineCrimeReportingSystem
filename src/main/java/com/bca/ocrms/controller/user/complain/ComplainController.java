@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -57,12 +58,28 @@ public class ComplainController {
         model.addAttribute("complainView",complainService.findById(id));
         return "user/viewComplain";
     }
-    @GetMapping("/notification")
-    public String openNotification() {
-        if (complainService.getVerifiedStatus()) {
-            return "user/notification";
-        } else {
-                  return "user/blankPage";
-        }
+    @GetMapping("/update/{id}")
+    public String updateComplain(@PathVariable ("id") Integer id,Model model,
+                                 RedirectAttributes redirectAttributes)
+    {
+        ComplainDto complainDto=complainService.findById(id);
+        model.addAttribute("complainDto",complainDto);
+        return "user/complainUpdatePage";
+    }
+    @PostMapping("/update")
+    public String updateComplain(@Valid @ModelAttribute ComplainDto complainDto,
+                                 BindingResult bindingResult, Model model)
+    {
+        if(!bindingResult.hasErrors()) {
+                try {
+                    complainDto = complainService.updateComplain(complainDto);
+                    model.addAttribute("message", "Complain update Successfully");
+                } catch (Exception e) {
+                    model.addAttribute("message", "Complain update  failed");
+                    e.printStackTrace();
+                }
+            }
+            model.addAttribute("complainDto", complainDto);
+            return "user/complainUpdatePage";
     }
 }

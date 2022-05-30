@@ -1,6 +1,7 @@
 package com.bca.ocrms.model.admin;
 
 import com.bca.ocrms.enums.Gender;
+import com.bca.ocrms.enums.Role;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,35 +14,32 @@ import javax.persistence.*;
 @Builder
 @Table(name="admin_register",uniqueConstraints = {
         @UniqueConstraint(name="unique_Register_email",columnNames = "email"),
-        @UniqueConstraint(name="unique_Register_contact",columnNames = "contact")
 })
 public class AdminRegister {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "Register_seq_gen")
-    @SequenceGenerator(name="Register_seq_gen",sequenceName = "Register_seq",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO/*,generator = "Register_seq_gen"*/)
+//    @SequenceGenerator(name="Register_seq_gen",sequenceName = "Register_seq",allocationSize = 1)
     private Integer id;
 
-    @Column(name="name",nullable = false)
-    private String name;
+    @Column(name="province_name",nullable = false)
+    private String provinceName;
 
-    @Column(name="address",nullable = false)
-    private String address;
+    @Column(name="district_name",nullable = false)
+    private String districtName;
 
     @Column(name="email",nullable = false)
     private String email;
 
-    @Column(name="contact",nullable = false)
-    private String contact;
+    @Column(name="station_name",nullable = false)
+    private String stationName;
 
-    @Column(name="id_number",nullable = false)
-    private String idNumber;
+    @Column(name="admin_name",nullable = false)
+    private String adminName;
+
 
     @Enumerated(EnumType.STRING)
-    @Column(name="gender",nullable = false)
-    private Gender gender;
-
-    @Column(name="post",nullable = false)
-    private String post;
+    @Column(name="role",nullable = false)
+    private Role role;
 
     private String photo;
 

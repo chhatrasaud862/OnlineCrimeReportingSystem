@@ -105,7 +105,16 @@ public class RegisterServiceImpl implements RegisterService {
                     .nationalIdNumber(register.getNationalIdNumber())
                     .build();
         }
-        return RegisterDto.builder().id(register.getId()).build();
+        return RegisterDto.builder()
+                .id(register.getId())
+                .name(register.getName())
+                .mobileNumber(register.getMobileNumber())
+                .dateOfBirth(String.valueOf(register.getDateOfBirth()))
+                .photo(fileStorageComponent.base64Encoded(register.getPhoto()))
+                .email(register.getEmail())
+                .gender(register.getGender())
+                .nationalIdNumber(register.getNationalIdNumber())
+                .build();
     }
 
     @Override

@@ -42,13 +42,13 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
         ResponseDto responseDto=FileStorageComponent.storeFile(adminRegisterDto.getMultipartFile());
         if(responseDto.isStatus()) {
             adminRegister.setId(adminRegisterDto.getId());
-            adminRegister.setName(adminRegisterDto.getName());
-            adminRegister.setAddress(adminRegisterDto.getAddress());
-            adminRegister.setGender(adminRegisterDto.getGender());
+            adminRegister.setProvinceName(adminRegisterDto.getProvinceNumber());
+            adminRegister.setDistrictName(adminRegisterDto.getDistrictName());
+            adminRegister.setStationName(adminRegisterDto.getStationName());
             adminRegister.setEmail(adminRegisterDto.getEmail());
-            adminRegister.setContact(adminRegisterDto.getContact());
-            adminRegister.setPost(adminRegisterDto.getPost());
-            adminRegister.setIdNumber(adminRegisterDto.getIdNumber());
+            adminRegister.setStationName(adminRegisterDto.getStationName());
+            adminRegister.setRole(adminRegisterDto.getRole());
+            adminRegister.setAdminName(adminRegisterDto.getAdminName());
             adminRegister.setPhoto(responseDto.getMessage());
 
             AdminRegister adminRegister1 = adminRegisterRepo.save(adminRegister);
@@ -79,4 +79,5 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
     public AdminRegister findAdminByEmail(String email){
         return adminRegisterRepo.findAdminRegisterByEmail(email);
     }
+
 }

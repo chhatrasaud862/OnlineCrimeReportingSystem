@@ -23,10 +23,10 @@
                 <li style="font-size: 30px"><a th:href="@{/}"><i class='fas fa-home' style='font-size:26px'>Home</i></a></li>
                 <li style="font-size: 20px"><a th:href="@{/admin/show}">Show complain</a></li>
                 <li style="font-size: 20px"><a th:href="@{/admin/report}">Crime Report</a></li>
-                <li style="font-size: 20px"><a th:href="@{/adminRegister}">New Register</a></li>
+                <li style="font-size: 20px"><a th:href="@{/adminRegister}">Admin Register</a></li>
                 <li style="font-size: 20px"><a href="#">About</a></li>
                 </li>
-                <li style="font-size: 20px"><a th:href="@{~/logout}"><i class='far fa-user'></i>Logout</a></li>
+                <li sec:authorize="isAuthenticated()",style="font-size: 20px"><a th:href="@{~/logout}"><i class='far fa-user'></i>Logout</a></li>
             </ul>
         </nav>
     </div>

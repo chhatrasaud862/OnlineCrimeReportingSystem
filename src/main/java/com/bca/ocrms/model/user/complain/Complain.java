@@ -17,8 +17,8 @@ import java.util.Date;
 @Table(name="user_complain")
 public class Complain {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "Complain_SEQ_GEN")
-    @SequenceGenerator(name="Complain_SEQ_GEN",sequenceName = "Complain_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO/*,generator = "Complain_SEQ_GEN"*/)
+//    @SequenceGenerator(name="Complain_SEQ_GEN",sequenceName = "Complain_SEQ",allocationSize = 1)
     private Integer id;
 
     @Column(name="address",nullable = false)
