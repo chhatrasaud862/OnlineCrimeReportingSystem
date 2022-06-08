@@ -19,8 +19,8 @@ import java.util.Date;
 })
 public class Register {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO/*,generator = "Register_SEQ_GEN"*/)
-//    @SequenceGenerator(name="Register_SEQ_GEN",sequenceName = "Register_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "Register_SEQ_GEN")
+   @SequenceGenerator(name="Register_SEQ_GEN",sequenceName = "Register_SEQ",allocationSize = 1)
     private Integer id;
 
     @Column(name="name",nullable = false)

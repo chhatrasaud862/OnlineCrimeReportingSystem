@@ -31,7 +31,13 @@ public interface ComplainRepo extends JpaRepository<Complain,Integer> {
     @Query(value = "select * from user_complain u  order by u.id",nativeQuery = true)
     List<Complain> getComplainDetails();
 
+    @Query(value = "select uc.register_id from user_complain uc where id=uc.id",nativeQuery = true)
+    List<Complain>getRegister(Integer userId);
+
    /* @Modifying
     @Query(value = "update Complain uc  set uc.complainStatus = 1 where  uc.id= :id")
     void setUpdateStatus(@Param("complainStatus") String complain_status, @Param("id") Integer id);*/
+  /* @Query("SELECT p FROM user_complain p WHERE CONCAT(p.name, p.brand, p.madein, p.price) LIKE %?1%")
+   public List<Complain> search(String keyword);*/
+
 }

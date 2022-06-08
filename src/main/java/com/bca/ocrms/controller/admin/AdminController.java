@@ -1,15 +1,14 @@
 package com.bca.ocrms.controller.admin;
 
+import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.enums.ComplainStatus;
-import com.bca.ocrms.repo.user.ComplainRepo;
 import com.bca.ocrms.service.impl.user.ComplainServiceImpl;
 import com.bca.ocrms.service.impl.user.RegisterServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
@@ -71,13 +70,13 @@ public class AdminController {
         model.addAttribute("registerList",registerService.findAll());
         return "admin/viewComplain";
     }
-    @GetMapping("/details/{id}")
+ /*   @GetMapping("/details/{id}")
     public String userDetail(@PathVariable("id")Integer id,Model model) throws IOException
     {
         model.addAttribute("complainView",complainService.findById(id));
         model.addAttribute("registerView",registerService.findById(id));
         return "admin/userDetails";
-    }
+    }*/
    /* @PutMapping("/updateStatus/{id}")
     public void updateStatus(@PathVariable("id") Integer id){
         complainService.updateStatus(id);

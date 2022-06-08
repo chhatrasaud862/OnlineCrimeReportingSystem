@@ -4,11 +4,10 @@ import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.enums.ComplainStatus;
 import com.bca.ocrms.model.user.complain.Complain;
+import com.bca.ocrms.model.user.register.Register;
 import com.bca.ocrms.repo.user.ComplainRepo;
 import com.bca.ocrms.repo.user.RegisterRepo;
 import com.bca.ocrms.service.user.ComplainService;
-import net.bytebuddy.TypeCache;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -41,6 +40,7 @@ public class ComplainServiceImpl implements ComplainService {
             entity.setComplainStatus(ComplainStatus.PENDING);
         }else {
             entity.setComplainStatus(complainDto.getComplainStatus());
+            entity.setRegister(complainDto.getRegister());
         }
         entity.setDescription(complainDto.getDescription());
         entity=complainRepo.save(entity);
@@ -62,6 +62,7 @@ public class ComplainServiceImpl implements ComplainService {
                     .complainStatus(complain.getComplainStatus())
                     .complainDate(complain.getComplainDate())
                     .description(complain.getDescription())
+                    .register(complain.getRegister())
                     .build());
         }
         return complainList;
@@ -95,8 +96,8 @@ public class ComplainServiceImpl implements ComplainService {
                     .complainDate(complain.getComplainDate())
                     .crimeDate(new SimpleDateFormat("yyyy-MM-dd").format(complain.getCrimeDate()))
                     .complainStatus(complain.getComplainStatus())
-                    .description(complain.getDescription())
                     .register(complain.getRegister())
+                    .description(complain.getDescription())
                     .build();
         }
         return null;
@@ -199,4 +200,5 @@ public class ComplainServiceImpl implements ComplainService {
    /* public void updateStatus(Integer id){
         complainRepo.setUpdateStatus("APPROVED",id);
     }*/
+
 }

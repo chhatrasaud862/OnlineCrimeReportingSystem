@@ -17,8 +17,8 @@ import javax.persistence.*;
 })
 public class AdminRegister {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO/*,generator = "Register_seq_gen"*/)
-//    @SequenceGenerator(name="Register_seq_gen",sequenceName = "Register_seq",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "Register_seq_gen")
+   @SequenceGenerator(name="Register_seq_gen",sequenceName = "Register_seq",allocationSize = 1)
     private Integer id;
 
     @Column(name="province_name",nullable = false)

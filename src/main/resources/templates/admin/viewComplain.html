@@ -6,8 +6,8 @@
     <style>
         .tab
         {
-            margin-left: 200px;
-            margin-right: 200px;
+            margin-left: 100px;
+            margin-right: 100px;
             margin-top: 50px;
         }
     </style>
@@ -25,7 +25,7 @@
         <thead class="table-dark">
         <tr>
             <th scope="col md-6">SN</th>
-           <!-- <th scope="col md-6">Complain By</th>-->
+            <th scope="col md-6">Complain By</th>
             <th scope="col md-6">Address</th>
             <th scope="col md-6">Crime Type</th>
             <th scope="col md-6">Crime Date</th>
@@ -37,7 +37,7 @@
         <tbody>
         <tr th:each="complain,loop :${complainList}">
             <th th:text="${loop.count}"></th>
-         <!--   <td th:text="${complain.getRegister().name}"></td>-->
+            <td th:text="${complain.getRegister().name}"></td>
             <td th:text="${complain.address}"></td>
             <td th:text="${complain.crimeType}"></td>
             <td th:text="${complain.crimeDate}"></td>
@@ -54,9 +54,9 @@
                 <a th:href="@{~/admin/delete/}+${complain.id}">
                     <botton class="btn btn-danger">Delete</botton>
                 </a>
-                <a th:href="@{~/admin/details/}+${complain.id}">
+                <!--<a th:href="@{~/admin/details/}+${complain.id}">
                     <botton class="btn btn-primary">User details</botton>
-                </a>
+                </a>-->
             </td>
         </tr>
         </tbody>
