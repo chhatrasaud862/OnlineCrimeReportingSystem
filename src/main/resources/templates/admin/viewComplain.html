@@ -6,8 +6,8 @@
     <style>
         .tab
         {
-            margin-left: 200px;
-            margin-right: 200px;
+            margin-left: 100px;
+            margin-right: 100px;
             margin-top: 50px;
         }
     </style>
@@ -21,17 +21,17 @@
 <div th:replace="fragment/adminResuable ::adminnavbar"></div>
 <div class="tab">
     <table class="table table-hover">
-        <h2>Complain List</h2>
+        <h2 style="font-size: 25px">Complain List</h2>
         <thead class="table-dark">
         <tr>
-            <th scope="col">SN</th>
-            <th scope="col">Complain By</th>
-            <th scope="col">Address</th>
-            <th scope="col">Crime Type</th>
-            <th scope="col">Crime Date</th>
-            <th scope="col">Complain Date</th>
-            <th scope="col">Status</th>
-            <th scope="col" style="align-items: center">Action</th>
+            <th scope="col md-6">SN</th>
+            <th scope="col md-6">Complain By</th>
+            <th scope="col md-6">Address</th>
+            <th scope="col md-6">Crime Type</th>
+            <th scope="col md-6">Crime Date</th>
+            <th scope="col md-6">Complain Date</th>
+            <th scope="col md-6">Status</th>
+            <th scope="col md-6" style="align-items: center">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -44,15 +44,19 @@
             <td th:text="${complain.complainDate}"></td>
             <td th:text="${complain.complainStatus}"></td>
             <td>
-                <a th:href="@{~/admin/verify/}+${complain.id}">
-                    <botton class="btn btn-info">Verify</botton>
+                <a th:href="@{~/admin/approve/}+${complain.id}">
+                    <botton class="btn btn-info">APPROVE</botton>
                 </a>
+                <!--<form th:action="@{'/admin/updateStatus'+${complain.id}}" th:method="put" >
+                <input type="hidden" name="_method" value="put" />
+                <button type="submit" class="btn btn-primary" id="Approve" name="Approve">Approve</button>
+                </form>-->
                 <a th:href="@{~/admin/delete/}+${complain.id}">
                     <botton class="btn btn-danger">Delete</botton>
                 </a>
-                <a th:href="@{~/admin/details/}+${complain.id}">
-                    <botton class="btn btn-primary">Details</botton>
-                </a>
+                <!--<a th:href="@{~/admin/details/}+${complain.id}">
+                    <botton class="btn btn-primary">User details</botton>
+                </a>-->
             </td>
         </tr>
         </tbody>

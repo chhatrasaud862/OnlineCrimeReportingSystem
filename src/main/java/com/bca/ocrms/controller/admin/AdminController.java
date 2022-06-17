@@ -1,5 +1,6 @@
 package com.bca.ocrms.controller.admin;
 
+import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.enums.ComplainStatus;
 import com.bca.ocrms.service.impl.user.ComplainServiceImpl;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Map;
+import java.util.TreeMap;
 
 @Controller
 @RequestMapping("/admin")
@@ -37,16 +40,21 @@ public class AdminController {
         return "admin/viewComplain";
     }
 
-    @GetMapping("/verify/{id}")
+    @GetMapping("/approve/{id}")
     public String verifyPage(@PathVariable("id")Integer id) throws ParseException {
-       ComplainDto complainDto= complainService.findById(id);
-       complainDto.setComplainStatus(ComplainStatus.VERIFY);
-       complainService.save(complainDto);
+      ComplainDto complainDto=complainService.findById(id);
+      complainDto.setComplainStatus(ComplainStatus.APPROVE);
+      complainService.save(complainDto);
        return "redirect:/admin/show";
     }
     @GetMapping("/report")
-    public String CrimeReport()
+    public String CrimeReport(Model model)
     {
+        Map<String, Integer> graphData = new TreeMap<>();
+        graphData.put("Totoal Complain",complainService.getTotalComplain());
+        graphData.put("Pending Complain",complainService.getTotalPending());
+        graphData.put("Complete Complain",complainService.getTotalApprove());
+        model.addAttribute("chartData", graphData);
         return "admin/viewReport";
     }
     @GetMapping("/delete/{id}")
@@ -62,12 +70,17 @@ public class AdminController {
         model.addAttribute("registerList",registerService.findAll());
         return "admin/viewComplain";
     }
-    @GetMapping("/details/{id}")
+ /*   @GetMapping("/details/{id}")
     public String userDetail(@PathVariable("id")Integer id,Model model) throws IOException
     {
         model.addAttribute("complainView",complainService.findById(id));
         model.addAttribute("registerView",registerService.findById(id));
         return "admin/userDetails";
-    }
+    }*/
+   /* @PutMapping("/updateStatus/{id}")
+    public void updateStatus(@PathVariable("id") Integer id){
+        complainService.updateStatus(id);
+
+    }*/
 
 }
