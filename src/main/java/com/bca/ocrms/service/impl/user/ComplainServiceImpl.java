@@ -4,7 +4,6 @@ import com.bca.ocrms.components.AuthorizeUser;
 import com.bca.ocrms.dto.user.ComplainDto;
 import com.bca.ocrms.enums.ComplainStatus;
 import com.bca.ocrms.model.user.complain.Complain;
-import com.bca.ocrms.model.user.register.Register;
 import com.bca.ocrms.repo.user.ComplainRepo;
 import com.bca.ocrms.repo.user.RegisterRepo;
 import com.bca.ocrms.service.user.ComplainService;
