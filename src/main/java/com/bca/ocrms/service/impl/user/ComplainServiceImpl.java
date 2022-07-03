@@ -166,16 +166,16 @@ public class ComplainServiceImpl implements ComplainService {
     }
     public ComplainDto updateComplain(ComplainDto complainDto) throws ParseException {
         Complain entity=new Complain();
-        entity.setId(complainDto.getId());
-        entity.setAddress(complainDto.getAddress());
-        entity.setCrimeType(complainDto.getCrimeType());
-        entity.setCrimeDate(new SimpleDateFormat("yyyy-MM-dd").parse(complainDto.getCrimeDate()));
-        entity.setComplainDate(new Date());
-        entity.setRegister(AuthorizeUser.getRegister());
-        entity.setComplainStatus(ComplainStatus.PENDING);
-        entity.setDescription(complainDto.getDescription());
-        entity=complainRepo.save(entity);
-        return complainDto;
+            entity.setId(complainDto.getId());
+            entity.setAddress(complainDto.getAddress());
+            entity.setCrimeType(complainDto.getCrimeType());
+            entity.setCrimeDate(new SimpleDateFormat("yyyy-MM-dd").parse(complainDto.getCrimeDate()));
+            entity.setComplainDate(new Date());
+            entity.setRegister(AuthorizeUser.getRegister());
+            entity.setComplainStatus(ComplainStatus.PENDING);
+            entity.setDescription(complainDto.getDescription());
+            entity = complainRepo.save(entity);
+            return complainDto;
     }
 
     public ComplainDto findId(Integer integer) {

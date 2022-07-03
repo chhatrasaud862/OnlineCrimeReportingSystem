@@ -8,8 +8,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-
 /**
  * @author CHHATRA SAUD
  * @product IntelliJ IDEA
@@ -17,7 +15,7 @@ import javax.persistence.Entity;
  * @Date 17/06/2022
  */
 @Component
-public class AdminInsert {
+public class AdminSet {
     @Autowired
     private UserRepo usrRepo;
     @EventListener

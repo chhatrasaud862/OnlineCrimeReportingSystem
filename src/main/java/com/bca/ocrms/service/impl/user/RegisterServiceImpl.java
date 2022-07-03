@@ -40,7 +40,6 @@ public class RegisterServiceImpl implements RegisterService {
         if (responseDto.isStatus()) {
             register.setId(registerDto.getId());
             register.setName(registerDto.getName());
-            register.setNationalIdNumber(registerDto.getNationalIdNumber());
             register.setEmail(registerDto.getEmail());
             register.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse(registerDto.getDateOfBirth()));
             register.setGender(registerDto.getGender());
@@ -80,7 +79,6 @@ public class RegisterServiceImpl implements RegisterService {
                     .photo(fileStorageComponent.base64Encoded(register.getPhoto()))
                     .email(register.getEmail())
                     .gender(register.getGender())
-                    .nationalIdNumber(register.getNationalIdNumber())
                     .build());
 
         }
@@ -102,7 +100,6 @@ public class RegisterServiceImpl implements RegisterService {
                     .photo(fileStorageComponent.base64Encoded(register.getPhoto()))
                     .email(register.getEmail())
                     .gender(register.getGender())
-                    .nationalIdNumber(register.getNationalIdNumber())
                     .build();
         }
         return RegisterDto.builder()
@@ -113,7 +110,6 @@ public class RegisterServiceImpl implements RegisterService {
                 .photo(fileStorageComponent.base64Encoded(register.getPhoto()))
                 .email(register.getEmail())
                 .gender(register.getGender())
-                .nationalIdNumber(register.getNationalIdNumber())
                 .build();
     }
 

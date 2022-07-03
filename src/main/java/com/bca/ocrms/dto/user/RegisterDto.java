@@ -22,9 +22,6 @@ public class RegisterDto {
     @NotEmpty(message = "Number can not be empty!!")
     private String name;
 
-    @NotEmpty(message = "National id can not be empty!!")
-    private String nationalIdNumber;
-
     private String dateOfBirth;
 
     private Gender gender;

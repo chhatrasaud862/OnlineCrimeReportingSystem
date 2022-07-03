@@ -26,7 +26,7 @@ public class MainController {
         {
             Register register=registerService.findRegisterByEmail(AuthorizeUser.getRegister().getEmail());
             AuthorizeUser.setRegister(null);
-            //asign again
+            //assign again
             AuthorizeUser.setRegister(register);
             return "user/userLandingPage";
         }else if (AuthorizeUser.getUserStatus().ordinal() == 1){
